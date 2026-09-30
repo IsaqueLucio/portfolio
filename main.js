@@ -26,11 +26,14 @@
     ...document.querySelectorAll('.section__heading'),
     ...document.querySelectorAll('.about-grid__text'),
     ...document.querySelectorAll('.about-grid__stats'),
+    ...document.querySelectorAll('.about-photo'),
     ...document.querySelectorAll('.timeline__item'),
     ...document.querySelectorAll('.stack-category'),
     ...document.querySelectorAll('.project-card'),
+    ...document.querySelectorAll('.code-block'),
     ...document.querySelectorAll('.cert-card'),
     ...document.querySelectorAll('.contact-grid > *'),
+    ...document.querySelectorAll('.contact-photo'),
     ...document.querySelectorAll('.cta-content'),
   ];
 

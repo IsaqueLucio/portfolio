@@ -14,7 +14,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -129,22 +129,39 @@
         </div>
       </div>
 
-      <div class="about-grid__stats">
-        <div class="stat-card" id="stat-experience">
-          <span class="stat-card__num">2+</span>
-          <span class="stat-card__label">ANOS DE PROJETOS</span>
+      <!-- FOTO SOBRE MIM -->
+      <div class="about-grid__photo-col">
+        <div class="about-grid__stats">
+          <div class="stat-card" id="stat-experience">
+            <span class="stat-card__num">2+</span>
+            <span class="stat-card__label">ANOS DE PROJETOS</span>
+          </div>
+          <div class="stat-card" id="stat-stack">
+            <span class="stat-card__num">12+</span>
+            <span class="stat-card__label">TECNOLOGIAS</span>
+          </div>
+          <div class="stat-card" id="stat-certs">
+            <span class="stat-card__num">4</span>
+            <span class="stat-card__label">CERTS. EM ANDAMENTO</span>
+          </div>
+          <div class="stat-card" id="stat-projects">
+            <span class="stat-card__num">7</span>
+            <span class="stat-card__label">PROJETOS</span>
+          </div>
         </div>
-        <div class="stat-card" id="stat-stack">
-          <span class="stat-card__num">12+</span>
-          <span class="stat-card__label">TECNOLOGIAS</span>
-        </div>
-        <div class="stat-card" id="stat-certs">
-          <span class="stat-card__num">4</span>
-          <span class="stat-card__label">CERTS. EM ANDAMENTO</span>
-        </div>
-        <div class="stat-card" id="stat-projects">
-          <span class="stat-card__num">7</span>
-          <span class="stat-card__label">PROJETOS</span>
+        <div class="about-photo">
+          <img
+            src="assets/foto-sobre-mim-placeholder.jpg"
+            alt="Foto de Isaque — substituir pelo arquivo real"
+            class="about-photo__img"
+            width="480"
+            height="600"
+            loading="lazy"
+          >
+          <div class="about-photo__caption">
+            <span class="status-dot status-dot--green"></span>
+            Disponível para oportunidades
+          </div>
         </div>
       </div>
     </div>
@@ -213,56 +230,130 @@
     </h2>
 
     <div class="stack-grid">
+      <!-- LINGUAGENS -->
       <div class="stack-category" id="stack-langs">
         <div class="stack-category__header">
           <span class="stack-category__icon">{ }</span>
           LINGUAGENS
         </div>
         <ul class="stack-list" role="list">
-          <li class="stack-item"><span class="stack-item__name">Java</span><span class="stack-item__bar"><span style="--w:85%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">Python</span><span class="stack-item__bar"><span style="--w:80%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">Bash</span><span class="stack-item__bar"><span style="--w:65%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">SQL</span><span class="stack-item__bar"><span style="--w:75%"></span></span></li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/java.svg" alt="Java" width="20" height="20"></span>
+            <span class="stack-item__name">Java</span>
+            <span class="stack-item__bar"><span style="--w:85%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/python.svg" alt="Python" width="20" height="20"></span>
+            <span class="stack-item__name">Python</span>
+            <span class="stack-item__bar"><span style="--w:80%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/bash.svg" alt="Bash" width="20" height="20"></span>
+            <span class="stack-item__name">Bash</span>
+            <span class="stack-item__bar"><span style="--w:65%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/sql.svg" alt="SQL" width="20" height="20"></span>
+            <span class="stack-item__name">SQL</span>
+            <span class="stack-item__bar"><span style="--w:75%"></span></span>
+          </li>
         </ul>
       </div>
 
+      <!-- FRAMEWORKS -->
       <div class="stack-category" id="stack-frameworks">
         <div class="stack-category__header">
           <span class="stack-category__icon">⚙</span>
           FRAMEWORKS
         </div>
         <ul class="stack-list" role="list">
-          <li class="stack-item"><span class="stack-item__name">Spring Boot</span><span class="stack-item__bar"><span style="--w:80%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">FastAPI</span><span class="stack-item__bar"><span style="--w:75%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">JUnit</span><span class="stack-item__bar"><span style="--w:70%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">pytest</span><span class="stack-item__bar"><span style="--w:70%"></span></span></li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/spring.svg" alt="Spring Boot" width="20" height="20"></span>
+            <span class="stack-item__name">Spring Boot</span>
+            <span class="stack-item__bar"><span style="--w:80%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/fastapi.svg" alt="FastAPI" width="20" height="20"></span>
+            <span class="stack-item__name">FastAPI</span>
+            <span class="stack-item__bar"><span style="--w:75%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/junit.svg" alt="JUnit" width="20" height="20"></span>
+            <span class="stack-item__name">JUnit</span>
+            <span class="stack-item__bar"><span style="--w:70%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/pytest.svg" alt="pytest" width="20" height="20"></span>
+            <span class="stack-item__name">pytest</span>
+            <span class="stack-item__bar"><span style="--w:70%"></span></span>
+          </li>
         </ul>
       </div>
 
+      <!-- DEVOPS / CLOUD -->
       <div class="stack-category" id="stack-devops">
         <div class="stack-category__header">
           <span class="stack-category__icon">☁</span>
           DEVOPS / CLOUD
         </div>
         <ul class="stack-list" role="list">
-          <li class="stack-item"><span class="stack-item__name">Docker</span><span class="stack-item__bar"><span style="--w:82%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">GitHub Actions</span><span class="stack-item__bar"><span style="--w:72%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">AWS</span><span class="stack-item__bar"><span style="--w:60%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">Linux (Ubuntu)</span><span class="stack-item__bar"><span style="--w:85%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">n8n</span><span class="stack-item__bar"><span style="--w:78%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">Grafana</span><span class="stack-item__bar"><span style="--w:60%"></span></span></li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/docker.svg" alt="Docker" width="20" height="20"></span>
+            <span class="stack-item__name">Docker</span>
+            <span class="stack-item__bar"><span style="--w:82%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/githubactions.svg" alt="GitHub Actions" width="20" height="20"></span>
+            <span class="stack-item__name">GitHub Actions</span>
+            <span class="stack-item__bar"><span style="--w:72%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/amazonwebservices.svg" alt="AWS" width="20" height="20"></span>
+            <span class="stack-item__name">AWS</span>
+            <span class="stack-item__bar"><span style="--w:60%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/linux.svg" alt="Linux Ubuntu" width="20" height="20"></span>
+            <span class="stack-item__name">Linux (Ubuntu)</span>
+            <span class="stack-item__bar"><span style="--w:85%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/n8n.svg" alt="n8n" width="20" height="20"></span>
+            <span class="stack-item__name">n8n</span>
+            <span class="stack-item__bar"><span style="--w:78%"></span></span>
+          </li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/grafana.svg" alt="Grafana" width="20" height="20"></span>
+            <span class="stack-item__name">Grafana</span>
+            <span class="stack-item__bar"><span style="--w:60%"></span></span>
+          </li>
         </ul>
       </div>
 
+      <!-- BANCO DE DADOS -->
       <div class="stack-category" id="stack-db">
         <div class="stack-category__header">
           <span class="stack-category__icon">◈</span>
           BANCO DE DADOS
         </div>
         <ul class="stack-list" role="list">
-          <li class="stack-item"><span class="stack-item__name">PostgreSQL</span><span class="stack-item__bar"><span style="--w:80%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">SQLAlchemy</span><span class="stack-item__bar"><span style="--w:72%"></span></span></li>
-          <li class="stack-item"><span class="stack-item__name">Flyway</span><span class="stack-item__bar"><span style="--w:65%"></span></span></li>
+          <li class="stack-item">
+            <span class="stack-item__icon"><img src="stack_icons/postgresql.svg" alt="PostgreSQL" width="20" height="20"></span>
+            <span class="stack-item__name">PostgreSQL</span>
+            <span class="stack-item__bar"><span style="--w:80%"></span></span>
+          </li>
+          <li class="stack-item">
+            <!-- SQLAlchemy: sem SVG na pasta. Usando texto como fallback -->
+            <span class="stack-item__icon stack-item__icon--text">SA</span>
+            <span class="stack-item__name">SQLAlchemy</span>
+            <span class="stack-item__bar"><span style="--w:72%"></span></span>
+          </li>
+          <li class="stack-item">
+            <!-- Flyway: sem SVG na pasta. Usando texto como fallback -->
+            <span class="stack-item__icon stack-item__icon--text">FW</span>
+            <span class="stack-item__name">Flyway</span>
+            <span class="stack-item__bar"><span style="--w:65%"></span></span>
+          </li>
         </ul>
       </div>
     </div>
@@ -281,22 +372,22 @@
 
     <div class="projects-grid">
 
-      <!-- Julius -->
+      <!-- Julius — FEATURED com bloco de código -->
       <article class="project-card project-card--featured" id="project-julius">
-        <div class="project-card__header">
-          <div class="project-card__meta">
-            <span class="badge badge--accent">EM CONSTRUÇÃO</span>
-            <span class="project-card__num">01</span>
+        <div class="project-card__main">
+          <div class="project-card__header">
+            <div class="project-card__meta">
+              <span class="badge badge--accent">EM CONSTRUÇÃO</span>
+              <span class="project-card__num">01</span>
+            </div>
+            <h3 class="project-card__title">Julius</h3>
+            <p class="project-card__subtitle">Sistema de Controle de Gastos Pessoais</p>
           </div>
-          <h3 class="project-card__title">Julius</h3>
-          <p class="project-card__subtitle">Sistema de Controle de Gastos Pessoais</p>
-        </div>
-        <p class="project-card__desc">
-          Controle financeiro pessoal com dados bancários reais via Open Finance/Pluggy.
-          Mascote: um tatu-bola. Back-end em FastAPI + PostgreSQL + SQLAlchemy/Alembic.
-          Front em React + Vite + TypeScript + Tailwind. Orquestrado com Docker Compose.
-        </p>
-        <div class="project-card__footer">
+          <p class="project-card__desc">
+            Controle financeiro pessoal com dados bancários reais via Open Finance/Pluggy.
+            Mascote: um tatu-bola. Back-end em FastAPI + PostgreSQL + SQLAlchemy/Alembic.
+            Front em React + Vite + TypeScript + Tailwind. Orquestrado com Docker Compose.
+          </p>
           <div class="project-card__tags">
             <span class="tag tag--sm">FASTAPI</span>
             <span class="tag tag--sm">POSTGRESQL</span>
@@ -304,13 +395,31 @@
             <span class="tag tag--sm">OPEN FINANCE</span>
             <span class="tag tag--sm">REACT</span>
           </div>
-          <div class="project-card__ascii">
-            <pre>┌─ julius ──────────────┐
-│ 💰 Open Finance API   │
-│ 🐾 Pluggy SDK         │
-│ 🐳 Docker Compose     │
-└───────────────────────┘</pre>
+        </div>
+
+        <!-- BLOCO DE CÓDIGO 1 — endpoint FastAPI Julius -->
+        <div class="code-block" aria-label="Exemplo de código do projeto Julius">
+          <div class="code-block__header">
+            <div class="code-block__dots">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+            </div>
+            <span class="code-block__filename">transactions.py</span>
           </div>
+          <pre class="code-block__body"><code><span class="ck">from</span> <span class="cn">fastapi</span> <span class="ck">import</span> APIRouter, Depends
+<span class="ck">from</span> <span class="cn">sqlalchemy.orm</span> <span class="ck">import</span> Session
+<span class="ck">from</span> <span class="cn">app.db</span> <span class="ck">import</span> get_db
+<span class="ck">from</span> <span class="cn">app.models</span> <span class="ck">import</span> Transaction
+
+router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
+
+<span class="cc"># Retorna gastos agrupados por categoria</span>
+<span class="ck">@router</span>.get(<span class="cs">"/summary"</span>)
+<span class="ck">def</span> <span class="cn">get_summary</span>(db: Session = Depends(get_db)):
+    <span class="ck">return</span> db.query(Transaction).group_by(
+        Transaction.category
+    ).all()</code></pre>
         </div>
       </article>
 
@@ -341,7 +450,7 @@
         </div>
       </article>
 
-      <!-- Zézin -->
+      <!-- Zézin — com bloco de código -->
       <article class="project-card" id="project-zezin">
         <div class="project-card__header">
           <div class="project-card__meta">
@@ -355,6 +464,32 @@
           Bot de suporte nível 1 no Discord via n8n. Cria threads por chamado, triagem de prioridade,
           coleta dados via Tally, sincroniza com Google Sheets, monitora SLA. Rodando em Docker.
         </p>
+
+        <!-- BLOCO DE CÓDIGO 2 — script Python de triagem de SLA -->
+        <div class="code-block" aria-label="Exemplo de código do projeto Zézin">
+          <div class="code-block__header">
+            <div class="code-block__dots">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+            </div>
+            <span class="code-block__filename">sla_check.py</span>
+          </div>
+          <pre class="code-block__body"><code><span class="ck">from</span> <span class="cn">datetime</span> <span class="ck">import</span> datetime, timedelta
+
+<span class="cc"># Verifica tickets com SLA em risco</span>
+<span class="ck">def</span> <span class="cn">check_sla</span>(tickets: list[dict]) -> list[dict]:
+    now = datetime.utcnow()
+    at_risk = []
+    <span class="ck">for</span> ticket <span class="ck">in</span> tickets:
+        deadline = ticket[<span class="cs">"created_at"</span>] + timedelta(
+            hours=ticket[<span class="cs">"sla_hours"</span>]
+        )
+        <span class="ck">if</span> (deadline - now).seconds < <span class="cs">3600</span>:
+            at_risk.append(ticket)
+    <span class="ck">return</span> at_risk</code></pre>
+        </div>
+
         <div class="project-card__footer">
           <div class="project-card__tags">
             <span class="tag tag--sm">N8N</span>
@@ -392,7 +527,7 @@
         </div>
       </article>
 
-      <!-- PS1 Fatec -->
+      <!-- PS1 Fatec — com bloco de código -->
       <article class="project-card" id="project-ps1">
         <div class="project-card__header">
           <div class="project-card__meta">
@@ -406,6 +541,32 @@
           API REST em Spring Boot com PostgreSQL, Flyway, JPA/Hibernate e Lombok.
           Desenvolvida em GitHub Codespaces para projeto semestral da Fatec.
         </p>
+
+        <!-- BLOCO DE CÓDIGO 3 — pytest fixture de banco -->
+        <div class="code-block" aria-label="Exemplo de código — testes com pytest">
+          <div class="code-block__header">
+            <div class="code-block__dots">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+            </div>
+            <span class="code-block__filename">conftest.py</span>
+          </div>
+          <pre class="code-block__body"><code><span class="ck">import</span> <span class="cn">pytest</span>
+<span class="ck">from</span> <span class="cn">sqlalchemy</span> <span class="ck">import</span> create_engine
+<span class="ck">from</span> <span class="cn">sqlalchemy.orm</span> <span class="ck">import</span> sessionmaker
+<span class="ck">from</span> <span class="cn">app.db</span> <span class="ck">import</span> Base
+
+<span class="cc"># Banco em memória para testes isolados</span>
+<span class="ck">@pytest</span>.fixture(scope=<span class="cs">"session"</span>)
+<span class="ck">def</span> <span class="cn">db_session</span>():
+    engine = create_engine(<span class="cs">"sqlite:///:memory:"</span>)
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    <span class="ck">yield</span> Session()
+    Base.metadata.drop_all(engine)</code></pre>
+        </div>
+
         <div class="project-card__footer">
           <div class="project-card__tags">
             <span class="tag tag--sm">SPRING BOOT</span>
@@ -565,6 +726,18 @@
           Aberto a estágios, posições júnior e projetos freelance em
           back-end, DevOps e automação.
         </p>
+
+        <!-- FOTO CONTATO -->
+        <div class="contact-photo">
+          <img
+            src="assets/foto-contato-placeholder.jpg"
+            alt="Foto de Isaque — substituir pelo arquivo real"
+            class="contact-photo__img"
+            width="400"
+            height="400"
+            loading="lazy"
+          >
+        </div>
       </div>
 
       <div class="contact-grid__links">

@@ -41,41 +41,45 @@
         </svg>
       </button>
 
-      <ul class="nav__menu" id="nav-menu">
-        <li><a href="#sobre" class="nav__link" data-i18n="footer.nav.about">Sobre</a></li>
-        <li><a href="#experiencia" class="nav__link" data-i18n="section.002.label">Experiência</a></li>
-        <li><a href="#projetos" class="nav__link" data-i18n="footer.nav.projects">Projetos</a></li>
-        <li><a href="#certificacoes" class="nav__link" data-i18n="footer.nav.certs">Certs</a></li>
-      </ul>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a href="#sobre" class="nav__link" data-i18n="footer.nav.about">Sobre</a></li>
+          <li><a href="#experiencia" class="nav__link" data-i18n="section.002.label">Experiência</a></li>
+          <li><a href="#projetos" class="nav__link" data-i18n="footer.nav.projects">Projetos</a></li>
+          <li><a href="#certificacoes" class="nav__link" data-i18n="footer.nav.certs">Certs</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <span class="nav__name">ISAQUE LUCIO</span>
+
+          <!-- Seletor de idioma -->
+          <div class="lang-switcher" role="group" aria-label="Idioma / Language">
+            <button class="lang-btn lang-btn--active" data-lang="pt" id="lang-pt" aria-pressed="true">PT</button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button class="lang-btn" data-lang="en" id="lang-en" aria-pressed="false">EN</button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button class="lang-btn" data-lang="es" id="lang-es" aria-pressed="false">ES</button>
+          </div>
+
+          <!-- Toggle de tema (3 opções) -->
+          <div class="theme-switcher" role="group" aria-label="Seletor de tema">
+            <button class="theme-btn" data-theme-val="light" aria-label="Tema Claro" aria-pressed="false" title="Modo Claro">
+              <img src="images/sun_white.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--white" width="16" height="16">
+              <img src="images/sun.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--dark" width="16" height="16">
+            </button>
+            <button class="theme-btn" data-theme-val="system" aria-label="Tema Sistema" aria-pressed="false" title="Seguir Sistema">
+              <img src="images/settings_white.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--white" width="16" height="16">
+              <img src="images/settings_dark.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--dark" width="16" height="16">
+            </button>
+            <button class="theme-btn" data-theme-val="dark" aria-label="Tema Escuro" aria-pressed="false" title="Modo Escuro">
+              <img src="images/moon.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--white" width="16" height="16">
+              <img src="images/moon_dark.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--dark" width="16" height="16">
+            </button>
+          </div>
+        </div>
+      </div>
 
       <div class="nav__right">
-        <span class="nav__name">ISAQUE LUCIO</span>
-
-        <!-- Seletor de idioma -->
-        <div class="lang-switcher" role="group" aria-label="Idioma / Language">
-          <button class="lang-btn lang-btn--active" data-lang="pt" id="lang-pt" aria-pressed="true">PT</button>
-          <span class="lang-sep" aria-hidden="true">|</span>
-          <button class="lang-btn" data-lang="en" id="lang-en" aria-pressed="false">EN</button>
-          <span class="lang-sep" aria-hidden="true">|</span>
-          <button class="lang-btn" data-lang="es" id="lang-es" aria-pressed="false">ES</button>
-        </div>
-
-        <!-- Toggle de tema (3 opções) -->
-        <div class="theme-switcher" role="group" aria-label="Seletor de tema">
-          <button class="theme-btn" data-theme-val="light" aria-label="Tema Claro" aria-pressed="false" title="Modo Claro">
-            <img src="images/sun_white.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--white" width="16" height="16">
-            <img src="images/sun.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--dark" width="16" height="16">
-          </button>
-          <button class="theme-btn" data-theme-val="system" aria-label="Tema Sistema" aria-pressed="false" title="Seguir Sistema">
-            <img src="images/settings_white.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--white" width="16" height="16">
-            <img src="images/settings_dark.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--dark" width="16" height="16">
-          </button>
-          <button class="theme-btn" data-theme-val="dark" aria-label="Tema Escuro" aria-pressed="false" title="Modo Escuro">
-            <img src="images/moon.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--white" width="16" height="16">
-            <img src="images/moon_dark.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--dark" width="16" height="16">
-          </button>
-        </div>
-
         <a href="#contato" class="btn btn--primary" id="nav-contact-btn">
           <span class="btn__dot"></span>
           <span data-i18n="nav.contact">CONTATO</span>
@@ -199,8 +203,8 @@
         <div class="about-photo">
           <div class="about-photo__painting" style="background-image: url('images/florest.png');" aria-hidden="true"></div>
           <img
-            src="assets/foto-sobre-mim-placeholder.jpg"
-            alt="Foto de Isaque Lucio — substituir pelo arquivo real"
+            src="assets/foto-sobre-mim.jpg"
+            alt="Foto de Isaque Lucio"
             class="about-photo__img"
             width="480" height="600"
             loading="lazy"
@@ -805,8 +809,8 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
 
         <div class="contact-photo">
           <img
-            src="assets/foto-contato-placeholder.jpg"
-            alt="Foto de Isaque Lucio — substituir pelo arquivo real"
+            src="assets/foto-contato.jpg"
+            alt="Foto de Isaque Lucio"
             class="contact-photo__img"
             width="400" height="400"
             loading="lazy"

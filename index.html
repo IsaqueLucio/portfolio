@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Isaque — Back-end & DevOps Developer</title>
-  <meta name="description" content="Portfólio de Isaque — Desenvolvedor Back-end e DevOps/DevSecOps. Estudante de ADS na Fatec Franca. Especializado em Java, Python, FastAPI, Spring Boot, Docker, AWS e GitHub Actions.">
+  <title>Isaque Lucio — Back-end & DevOps Developer</title>
+  <meta name="description" content="Portfólio de Isaque Lucio — Desenvolvedor Back-end e DevOps/DevSecOps. Estudante de ADS na Fatec Franca. Especializado em Java, Python, FastAPI, Spring Boot, Docker, AWS e GitHub Actions.">
+  <meta name="author" content="Isaque Lucio">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Isaque — Back-end & DevOps Developer">
+  <meta property="og:title" content="Isaque Lucio — Back-end & DevOps Developer">
   <meta property="og:description" content="Desenvolvedor Back-end e DevOps/DevSecOps. Java, Python, FastAPI, Spring Boot, Docker, AWS.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://isaquelucio.github.io">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +19,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Theme init: apply before first paint to avoid flash -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefer = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      var theme = saved === 'system' ? prefer : (saved || 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
 
@@ -24,15 +36,31 @@
   <nav class="nav" id="nav" role="navigation" aria-label="Navegação principal">
     <div class="nav__inner">
       <div class="nav__tags">
-        <span class="tag">BACK-END</span>
-        <span class="tag">DEVOPS</span>
-        <span class="tag">2026</span>
+        <span class="tag" data-i18n="nav.tag.backend">BACK-END</span>
+        <span class="tag" data-i18n="nav.tag.devops">DEVOPS</span>
+        <span class="tag" data-i18n="nav.tag.year">2026</span>
       </div>
       <div class="nav__right">
-        <span class="nav__name">ISAQUE</span>
+        <span class="nav__name">ISAQUE LUCIO</span>
+
+        <!-- Seletor de idioma -->
+        <div class="lang-switcher" role="group" aria-label="Idioma / Language">
+          <button class="lang-btn lang-btn--active" data-lang="pt" id="lang-pt" aria-pressed="true">PT</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button class="lang-btn" data-lang="en" id="lang-en" aria-pressed="false">EN</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button class="lang-btn" data-lang="es" id="lang-es" aria-pressed="false">ES</button>
+        </div>
+
+        <!-- Toggle de tema -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Mudar para modo claro" title="Mudar tema">
+          <img src="images/moon.png" alt="" class="theme-toggle__icon theme-toggle__icon--dark" width="18" height="18">
+          <img src="images/sun.png"  alt="" class="theme-toggle__icon theme-toggle__icon--light" width="18" height="18">
+        </button>
+
         <a href="#contato" class="btn btn--primary" id="nav-contact-btn">
           <span class="btn__dot"></span>
-          CONTATO
+          <span data-i18n="nav.contact">CONTATO</span>
         </a>
       </div>
     </div>
@@ -42,7 +70,7 @@
   <section class="hero" id="hero">
     <div class="hero__bg-wrapper">
       <img
-        src="hero_landscape.png"
+        src="images/hero_landscape.png"
         alt="Paisagem retro vintage com montanhas e sol"
         class="hero__bg-img"
         fetchpriority="high"
@@ -53,7 +81,7 @@
       <h1 class="hero__title">ISAQUE</h1>
       <div class="hero__location">
         <span class="hero__loc-dot"></span>
-        Franca, SP — Brasil
+        <span data-i18n="hero.location">Franca, SP — Brasil</span>
       </div>
     </div>
     <div class="hero__browser-chrome">
@@ -63,7 +91,7 @@
           <span class="dot dot--yellow"></span>
           <span class="dot dot--green"></span>
         </div>
-        <div class="browser-chrome__url">isaque.dev</div>
+        <div class="browser-chrome__url">isaquelucio.dev</div>
       </div>
     </div>
   </section>
@@ -83,7 +111,6 @@
       <span>GRAFANA</span><span class="ticker__sep">•</span>
       <span>N8N</span><span class="ticker__sep">•</span>
       <span>DEVOPS</span><span class="ticker__sep">•</span>
-      <!-- duplicate for seamless loop -->
       <span>JAVA</span><span class="ticker__sep">•</span>
       <span>PYTHON</span><span class="ticker__sep">•</span>
       <span>FASTAPI</span><span class="ticker__sep">•</span>
@@ -103,258 +130,265 @@
   <section class="section section--about" id="sobre">
     <div class="section__header">
       <span class="section__num">001</span>
-      <span class="section__label">PERFIL</span>
+      <span class="section__label" data-i18n="section.001.label">PERFIL</span>
     </div>
 
     <div class="about-grid">
       <div class="about-grid__text">
-        <h2 class="section__heading">
+        <h2 class="section__heading" data-i18n-nl="about.heading">
           Construindo sistemas<br>que escalam.
         </h2>
-        <p class="about-grid__desc">
+        <p class="about-grid__desc" data-i18n-html="about.p1">
           Estudante de <strong>Análise e Desenvolvimento de Sistemas</strong> na Fatec Franca
           (formatura dez/2027), com background em Administração e Hardware.
           Estagiário na <strong>Luiza Labs</strong> (fev–ago/2026) e colaborador no
           Grupo Magalu. Foco em <strong>back-end</strong> e <strong>DevOps/DevSecOps</strong>.
         </p>
-        <p class="about-grid__desc">
+        <p class="about-grid__desc" data-i18n="about.p2">
           Inglês TOEIC B1. Apaixonado por automação, infraestrutura e boas práticas de engenharia.
         </p>
 
         <div class="about-grid__badges">
-          <span class="badge">ADS · Fatec Franca</span>
-          <span class="badge">Téc. Administração · CPS</span>
-          <span class="badge">Hardware · Microcamp</span>
-          <span class="badge">TOEIC B1</span>
+          <span class="badge" data-i18n="about.badge.ads">ADS · Fatec Franca</span>
+          <span class="badge" data-i18n="about.badge.adm">Téc. Administração · CPS</span>
+          <span class="badge" data-i18n="about.badge.hw">Hardware · Microcamp</span>
+          <span class="badge" data-i18n="about.badge.toeic">TOEIC B1</span>
         </div>
       </div>
 
-      <!-- FOTO SOBRE MIM -->
       <div class="about-grid__photo-col">
         <div class="about-grid__stats">
           <div class="stat-card" id="stat-experience">
             <span class="stat-card__num">2+</span>
-            <span class="stat-card__label">ANOS DE PROJETOS</span>
+            <span class="stat-card__label" data-i18n="stat.projects.label">ANOS DE PROJETOS</span>
           </div>
           <div class="stat-card" id="stat-stack">
             <span class="stat-card__num">12+</span>
-            <span class="stat-card__label">TECNOLOGIAS</span>
+            <span class="stat-card__label" data-i18n="stat.stack.label">TECNOLOGIAS</span>
           </div>
           <div class="stat-card" id="stat-certs">
             <span class="stat-card__num">4</span>
-            <span class="stat-card__label">CERTS. EM ANDAMENTO</span>
+            <span class="stat-card__label" data-i18n="stat.certs.label">CERTS. EM ANDAMENTO</span>
           </div>
           <div class="stat-card" id="stat-projects">
             <span class="stat-card__num">7</span>
-            <span class="stat-card__label">PROJETOS</span>
+            <span class="stat-card__label" data-i18n="stat.projs.label">PROJETOS</span>
           </div>
         </div>
+
+        <!-- Foto sobre mim — com fundo floresta -->
         <div class="about-photo">
+          <div class="about-photo__painting" style="background-image: url('images/florest.png');" aria-hidden="true"></div>
           <img
             src="assets/foto-sobre-mim-placeholder.jpg"
-            alt="Foto de Isaque — substituir pelo arquivo real"
+            alt="Foto de Isaque Lucio — substituir pelo arquivo real"
             class="about-photo__img"
-            width="480"
-            height="600"
+            width="480" height="600"
             loading="lazy"
           >
           <div class="about-photo__caption">
             <span class="status-dot status-dot--green"></span>
-            Disponível para oportunidades
+            <span data-i18n="about.photo.caption">Disponível para oportunidades</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIÊNCIA -->
-  <section class="section section--exp" id="experiencia">
-    <div class="section__header">
-      <span class="section__num">002</span>
-      <span class="section__label">EXPERIÊNCIA</span>
-    </div>
+  <!-- EXPERIÊNCIA — 002 (fundo: castel.png) -->
+  <section class="section section--exp section--painting" id="experiencia"
+    style="--section-painting: url('images/castel.png');">
+    <div class="section__painting-overlay" aria-hidden="true"></div>
+    <div class="section__inner">
+      <div class="section__header">
+        <span class="section__num">002</span>
+        <span class="section__label" data-i18n="section.002.label">EXPERIÊNCIA</span>
+      </div>
 
-    <div class="timeline" role="list">
-      <article class="timeline__item" role="listitem">
-        <div class="timeline__period">fev/2026 — ago/2026</div>
-        <div class="timeline__content">
-          <h3 class="timeline__role">Estagiário de Tecnologia</h3>
-          <div class="timeline__company">Luiza Labs · Grupo Magalu</div>
-          <p class="timeline__desc">Desenvolvimento e manutenção de sistemas internos na vertical de tecnologia do Grupo Magazine Luiza.</p>
-          <div class="timeline__tags">
-            <span class="tag tag--sm">PYTHON</span>
-            <span class="tag tag--sm">BACKEND</span>
-            <span class="tag tag--sm">DEVOPS</span>
+      <div class="timeline" role="list">
+        <article class="timeline__item" role="listitem">
+          <div class="timeline__period">fev/2026 — ago/2026</div>
+          <div class="timeline__content">
+            <h3 class="timeline__role" data-i18n="exp.1.role">Estagiário de Tecnologia</h3>
+            <div class="timeline__company" data-i18n="exp.1.company">Luiza Labs · Grupo Magalu</div>
+            <p class="timeline__desc" data-i18n="exp.1.desc">Desenvolvimento e manutenção de sistemas internos na vertical de tecnologia do Grupo Magazine Luiza.</p>
+            <div class="timeline__tags">
+              <span class="tag tag--sm">PYTHON</span>
+              <span class="tag tag--sm">BACKEND</span>
+              <span class="tag tag--sm">DEVOPS</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="timeline__item" role="listitem">
-        <div class="timeline__period">out/2024 — atual</div>
-        <div class="timeline__content">
-          <h3 class="timeline__role">Agente de Relacionamento I</h3>
-          <div class="timeline__company">Grupo Magalu · Setor Resolve</div>
-          <p class="timeline__desc">Atendimento e resolução de conflitos em plataforma de marketplace — desenvolvimento de habilidades de análise e resolução de problemas.</p>
-          <div class="timeline__tags">
-            <span class="tag tag--sm">CUSTOMER EXPERIENCE</span>
-            <span class="tag tag--sm">E-COMMERCE</span>
+        <article class="timeline__item" role="listitem">
+          <div class="timeline__period">out/2024 — atual</div>
+          <div class="timeline__content">
+            <h3 class="timeline__role" data-i18n="exp.2.role">Agente de Relacionamento I</h3>
+            <div class="timeline__company" data-i18n="exp.2.company">Grupo Magalu · Setor Resolve</div>
+            <p class="timeline__desc" data-i18n="exp.2.desc">Atendimento e resolução de conflitos em plataforma de marketplace — desenvolvimento de habilidades de análise e resolução de problemas.</p>
+            <div class="timeline__tags">
+              <span class="tag tag--sm">CUSTOMER EXPERIENCE</span>
+              <span class="tag tag--sm">E-COMMERCE</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="timeline__item" role="listitem">
-        <div class="timeline__period">fev/2019 — dez/2021</div>
-        <div class="timeline__content">
-          <h3 class="timeline__role">Curso de Hardware</h3>
-          <div class="timeline__company">Microcamp</div>
-          <p class="timeline__desc">Formação técnica em manutenção e configuração de hardware, redes e infraestrutura física.</p>
-          <div class="timeline__tags">
-            <span class="tag tag--sm">HARDWARE</span>
-            <span class="tag tag--sm">INFRAESTRUTURA</span>
-            <span class="tag tag--sm">REDES</span>
+        <article class="timeline__item" role="listitem">
+          <div class="timeline__period">fev/2019 — dez/2021</div>
+          <div class="timeline__content">
+            <h3 class="timeline__role" data-i18n="exp.3.role">Curso de Hardware</h3>
+            <div class="timeline__company" data-i18n="exp.3.company">Microcamp</div>
+            <p class="timeline__desc" data-i18n="exp.3.desc">Formação técnica em manutenção e configuração de hardware, redes e infraestrutura física.</p>
+            <div class="timeline__tags">
+              <span class="tag tag--sm">HARDWARE</span>
+              <span class="tag tag--sm">INFRAESTRUTURA</span>
+              <span class="tag tag--sm">REDES</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- STACK — 003 -->
-  <section class="section section--stack" id="stack">
-    <div class="section__header">
-      <span class="section__num">003</span>
-      <span class="section__label">STACK</span>
-    </div>
-
-    <h2 class="section__heading section__heading--center">
-      O stack que<br>move os projetos.
-    </h2>
-
-    <div class="stack-grid">
-      <!-- LINGUAGENS -->
-      <div class="stack-category" id="stack-langs">
-        <div class="stack-category__header">
-          <span class="stack-category__icon">{ }</span>
-          LINGUAGENS
-        </div>
-        <ul class="stack-list" role="list">
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/java.svg" alt="Java" width="20" height="20"></span>
-            <span class="stack-item__name">Java</span>
-            <span class="stack-item__bar"><span style="--w:85%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/python.svg" alt="Python" width="20" height="20"></span>
-            <span class="stack-item__name">Python</span>
-            <span class="stack-item__bar"><span style="--w:80%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/bash.svg" alt="Bash" width="20" height="20"></span>
-            <span class="stack-item__name">Bash</span>
-            <span class="stack-item__bar"><span style="--w:65%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/sql.svg" alt="SQL" width="20" height="20"></span>
-            <span class="stack-item__name">SQL</span>
-            <span class="stack-item__bar"><span style="--w:75%"></span></span>
-          </li>
-        </ul>
+  <!-- STACK — 003 (fundo: solar_system.png) -->
+  <section class="section section--stack section--painting" id="stack"
+    style="--section-painting: url('images/solar_system.png');">
+    <div class="section__painting-overlay" aria-hidden="true"></div>
+    <div class="section__inner">
+      <div class="section__header">
+        <span class="section__num">003</span>
+        <span class="section__label" data-i18n="section.003.label">STACK</span>
       </div>
 
-      <!-- FRAMEWORKS -->
-      <div class="stack-category" id="stack-frameworks">
-        <div class="stack-category__header">
-          <span class="stack-category__icon">⚙</span>
-          FRAMEWORKS
-        </div>
-        <ul class="stack-list" role="list">
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/spring.svg" alt="Spring Boot" width="20" height="20"></span>
-            <span class="stack-item__name">Spring Boot</span>
-            <span class="stack-item__bar"><span style="--w:80%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/fastapi.svg" alt="FastAPI" width="20" height="20"></span>
-            <span class="stack-item__name">FastAPI</span>
-            <span class="stack-item__bar"><span style="--w:75%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/junit.svg" alt="JUnit" width="20" height="20"></span>
-            <span class="stack-item__name">JUnit</span>
-            <span class="stack-item__bar"><span style="--w:70%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/pytest.svg" alt="pytest" width="20" height="20"></span>
-            <span class="stack-item__name">pytest</span>
-            <span class="stack-item__bar"><span style="--w:70%"></span></span>
-          </li>
-        </ul>
-      </div>
+      <h2 class="section__heading section__heading--center" data-i18n-nl="stack.heading">
+        O stack que<br>move os projetos.
+      </h2>
 
-      <!-- DEVOPS / CLOUD -->
-      <div class="stack-category" id="stack-devops">
-        <div class="stack-category__header">
-          <span class="stack-category__icon">☁</span>
-          DEVOPS / CLOUD
+      <div class="stack-grid">
+        <!-- LINGUAGENS -->
+        <div class="stack-category" id="stack-langs">
+          <div class="stack-category__header">
+            <span class="stack-category__icon">{ }</span>
+            <span data-i18n="stack.langs">LINGUAGENS</span>
+          </div>
+          <ul class="stack-list" role="list">
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/java.svg" alt="Java" width="20" height="20"></span>
+              <span class="stack-item__name">Java</span>
+              <span class="stack-item__bar"><span style="--w:85%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/python.svg" alt="Python" width="20" height="20"></span>
+              <span class="stack-item__name">Python</span>
+              <span class="stack-item__bar"><span style="--w:80%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/bash.svg" alt="Bash" width="20" height="20"></span>
+              <span class="stack-item__name">Bash</span>
+              <span class="stack-item__bar"><span style="--w:65%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/sql.svg" alt="SQL" width="20" height="20"></span>
+              <span class="stack-item__name">SQL</span>
+              <span class="stack-item__bar"><span style="--w:75%"></span></span>
+            </li>
+          </ul>
         </div>
-        <ul class="stack-list" role="list">
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/docker.svg" alt="Docker" width="20" height="20"></span>
-            <span class="stack-item__name">Docker</span>
-            <span class="stack-item__bar"><span style="--w:82%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/githubactions.svg" alt="GitHub Actions" width="20" height="20"></span>
-            <span class="stack-item__name">GitHub Actions</span>
-            <span class="stack-item__bar"><span style="--w:72%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/amazonwebservices.svg" alt="AWS" width="20" height="20"></span>
-            <span class="stack-item__name">AWS</span>
-            <span class="stack-item__bar"><span style="--w:60%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/linux.svg" alt="Linux Ubuntu" width="20" height="20"></span>
-            <span class="stack-item__name">Linux (Ubuntu)</span>
-            <span class="stack-item__bar"><span style="--w:85%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/n8n.svg" alt="n8n" width="20" height="20"></span>
-            <span class="stack-item__name">n8n</span>
-            <span class="stack-item__bar"><span style="--w:78%"></span></span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/grafana.svg" alt="Grafana" width="20" height="20"></span>
-            <span class="stack-item__name">Grafana</span>
-            <span class="stack-item__bar"><span style="--w:60%"></span></span>
-          </li>
-        </ul>
-      </div>
 
-      <!-- BANCO DE DADOS -->
-      <div class="stack-category" id="stack-db">
-        <div class="stack-category__header">
-          <span class="stack-category__icon">◈</span>
-          BANCO DE DADOS
+        <!-- FRAMEWORKS -->
+        <div class="stack-category" id="stack-frameworks">
+          <div class="stack-category__header">
+            <span class="stack-category__icon">⚙</span>
+            <span data-i18n="stack.frameworks">FRAMEWORKS</span>
+          </div>
+          <ul class="stack-list" role="list">
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/spring.svg" alt="Spring Boot" width="20" height="20"></span>
+              <span class="stack-item__name">Spring Boot</span>
+              <span class="stack-item__bar"><span style="--w:80%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/fastapi.svg" alt="FastAPI" width="20" height="20"></span>
+              <span class="stack-item__name">FastAPI</span>
+              <span class="stack-item__bar"><span style="--w:75%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/junit.svg" alt="JUnit" width="20" height="20"></span>
+              <span class="stack-item__name">JUnit</span>
+              <span class="stack-item__bar"><span style="--w:70%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/pytest.svg" alt="pytest" width="20" height="20"></span>
+              <span class="stack-item__name">pytest</span>
+              <span class="stack-item__bar"><span style="--w:70%"></span></span>
+            </li>
+          </ul>
         </div>
-        <ul class="stack-list" role="list">
-          <li class="stack-item">
-            <span class="stack-item__icon"><img src="stack_icons/postgresql.svg" alt="PostgreSQL" width="20" height="20"></span>
-            <span class="stack-item__name">PostgreSQL</span>
-            <span class="stack-item__bar"><span style="--w:80%"></span></span>
-          </li>
-          <li class="stack-item">
-            <!-- SQLAlchemy: sem SVG na pasta. Usando texto como fallback -->
-            <span class="stack-item__icon stack-item__icon--text">SA</span>
-            <span class="stack-item__name">SQLAlchemy</span>
-            <span class="stack-item__bar"><span style="--w:72%"></span></span>
-          </li>
-          <li class="stack-item">
-            <!-- Flyway: sem SVG na pasta. Usando texto como fallback -->
-            <span class="stack-item__icon stack-item__icon--text">FW</span>
-            <span class="stack-item__name">Flyway</span>
-            <span class="stack-item__bar"><span style="--w:65%"></span></span>
-          </li>
-        </ul>
+
+        <!-- DEVOPS / CLOUD -->
+        <div class="stack-category" id="stack-devops">
+          <div class="stack-category__header">
+            <span class="stack-category__icon">☁</span>
+            <span data-i18n="stack.devops">DEVOPS / CLOUD</span>
+          </div>
+          <ul class="stack-list" role="list">
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/docker.svg" alt="Docker" width="20" height="20"></span>
+              <span class="stack-item__name">Docker</span>
+              <span class="stack-item__bar"><span style="--w:82%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/githubactions.svg" alt="GitHub Actions" width="20" height="20"></span>
+              <span class="stack-item__name">GitHub Actions</span>
+              <span class="stack-item__bar"><span style="--w:72%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/amazonwebservices.svg" alt="AWS" width="20" height="20"></span>
+              <span class="stack-item__name">AWS</span>
+              <span class="stack-item__bar"><span style="--w:60%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/ubuntu.svg" alt="Ubuntu Linux" width="20" height="20"></span>
+              <span class="stack-item__name">Linux (Ubuntu)</span>
+              <span class="stack-item__bar"><span style="--w:85%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/n8n.svg" alt="n8n" width="20" height="20"></span>
+              <span class="stack-item__name">n8n</span>
+              <span class="stack-item__bar"><span style="--w:78%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/grafana.svg" alt="Grafana" width="20" height="20"></span>
+              <span class="stack-item__name">Grafana</span>
+              <span class="stack-item__bar"><span style="--w:60%"></span></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- BANCO DE DADOS -->
+        <div class="stack-category" id="stack-db">
+          <div class="stack-category__header">
+            <span class="stack-category__icon">◈</span>
+            <span data-i18n="stack.db">BANCO DE DADOS</span>
+          </div>
+          <ul class="stack-list" role="list">
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/postgresql.svg" alt="PostgreSQL" width="20" height="20"></span>
+              <span class="stack-item__name">PostgreSQL</span>
+              <span class="stack-item__bar"><span style="--w:80%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/sqlalchemy.svg" alt="SQLAlchemy" width="20" height="20"></span>
+              <span class="stack-item__name">SQLAlchemy</span>
+              <span class="stack-item__bar"><span style="--w:72%"></span></span>
+            </li>
+            <li class="stack-item">
+              <span class="stack-item__icon"><img src="images/stack_icons/flyway.svg" alt="Flyway" width="20" height="20"></span>
+              <span class="stack-item__name">Flyway</span>
+              <span class="stack-item__bar"><span style="--w:65%"></span></span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -363,27 +397,27 @@
   <section class="section section--projects" id="projetos">
     <div class="section__header">
       <span class="section__num">004</span>
-      <span class="section__label">PROJETOS</span>
+      <span class="section__label" data-i18n="section.004.label">PROJETOS</span>
     </div>
 
-    <h2 class="section__heading">
+    <h2 class="section__heading" data-i18n-nl="projects.heading">
       Código que<br>resolve problemas reais.
     </h2>
 
     <div class="projects-grid">
 
-      <!-- Julius — FEATURED com bloco de código -->
+      <!-- Julius — FEATURED -->
       <article class="project-card project-card--featured" id="project-julius">
         <div class="project-card__main">
           <div class="project-card__header">
             <div class="project-card__meta">
-              <span class="badge badge--accent">EM CONSTRUÇÃO</span>
+              <span class="badge badge--accent" data-i18n="badge.wip">EM CONSTRUÇÃO</span>
               <span class="project-card__num">01</span>
             </div>
             <h3 class="project-card__title">Julius</h3>
-            <p class="project-card__subtitle">Sistema de Controle de Gastos Pessoais</p>
+            <p class="project-card__subtitle" data-i18n="proj.julius.sub">Sistema de Controle de Gastos Pessoais</p>
           </div>
-          <p class="project-card__desc">
+          <p class="project-card__desc" data-i18n="proj.julius.desc">
             Controle financeiro pessoal com dados bancários reais via Open Finance/Pluggy.
             Mascote: um tatu-bola. Back-end em FastAPI + PostgreSQL + SQLAlchemy/Alembic.
             Front em React + Vite + TypeScript + Tailwind. Orquestrado com Docker Compose.
@@ -397,7 +431,6 @@
           </div>
         </div>
 
-        <!-- BLOCO DE CÓDIGO 1 — endpoint FastAPI Julius -->
         <div class="code-block" aria-label="Exemplo de código do projeto Julius">
           <div class="code-block__header">
             <div class="code-block__dots">
@@ -427,13 +460,13 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
       <article class="project-card" id="project-icol">
         <div class="project-card__header">
           <div class="project-card__meta">
-            <span class="badge">OPEN SOURCE</span>
+            <span class="badge" data-i18n="badge.open">OPEN SOURCE</span>
             <span class="project-card__num">02</span>
           </div>
           <h3 class="project-card__title">ICOL</h3>
-          <p class="project-card__subtitle">CRUD com RBAC para ONG</p>
+          <p class="project-card__subtitle" data-i18n="proj.icol.sub">CRUD com RBAC para ONG</p>
         </div>
-        <p class="project-card__desc">
+        <p class="project-card__desc" data-i18n="proj.icol.desc">
           Sistema CRUD com controle de acesso por papéis (RBAC) desenvolvido para uma ONG.
           Arquitetura em Java/Spring Boot com PostgreSQL.
         </p>
@@ -444,28 +477,27 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
             <span class="tag tag--sm">RBAC</span>
             <span class="tag tag--sm">POSTGRESQL</span>
           </div>
-          <a href="https://github.com/FromTechBr/CRUD-ICOL" class="project-card__link" target="_blank" rel="noopener" id="icol-github-link">
-            github.com/FromTechBr/CRUD-ICOL →
+          <a href="https://github.com/IsaqueLucio/CRUD-ICOL" class="project-card__link" target="_blank" rel="noopener" id="icol-github-link">
+            github.com/IsaqueLucio/CRUD-ICOL →
           </a>
         </div>
       </article>
 
-      <!-- Zézin — com bloco de código -->
+      <!-- Zézin -->
       <article class="project-card" id="project-zezin">
         <div class="project-card__header">
           <div class="project-card__meta">
-            <span class="badge badge--green">RODANDO</span>
+            <span class="badge badge--green" data-i18n="badge.running">RODANDO</span>
             <span class="project-card__num">03</span>
           </div>
           <h3 class="project-card__title">Zézin</h3>
-          <p class="project-card__subtitle">Ecossistema de Automação Discord</p>
+          <p class="project-card__subtitle" data-i18n="proj.zezin.sub">Ecossistema de Automação Discord</p>
         </div>
-        <p class="project-card__desc">
+        <p class="project-card__desc" data-i18n="proj.zezin.desc">
           Bot de suporte nível 1 no Discord via n8n. Cria threads por chamado, triagem de prioridade,
           coleta dados via Tally, sincroniza com Google Sheets, monitora SLA. Rodando em Docker.
         </p>
 
-        <!-- BLOCO DE CÓDIGO 2 — script Python de triagem de SLA -->
         <div class="code-block" aria-label="Exemplo de código do projeto Zézin">
           <div class="code-block__header">
             <div class="code-block__dots">
@@ -504,13 +536,13 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
       <article class="project-card project-card--dark" id="project-server">
         <div class="project-card__header">
           <div class="project-card__meta">
-            <span class="badge badge--cyan">INFRA</span>
+            <span class="badge badge--cyan" data-i18n="badge.infra">INFRA</span>
             <span class="project-card__num">04</span>
           </div>
           <h3 class="project-card__title">Servidor Poco M3</h3>
-          <p class="project-card__subtitle">Smartphone → Servidor ARM64</p>
+          <p class="project-card__subtitle" data-i18n="proj.server.sub">Smartphone → Servidor ARM64</p>
         </div>
-        <p class="project-card__desc">
+        <p class="project-card__desc" data-i18n="proj.server.desc">
           Celular Android transformado em servidor ARM64. Ubuntu via Linux Deploy, Nginx,
           Cloudflare Tunnels. Planejado para hospedar o próprio portfólio.
         </p>
@@ -527,22 +559,21 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
         </div>
       </article>
 
-      <!-- PS1 Fatec — com bloco de código -->
+      <!-- PS1 Fatec -->
       <article class="project-card" id="project-ps1">
         <div class="project-card__header">
           <div class="project-card__meta">
-            <span class="badge">ACADÊMICO</span>
+            <span class="badge" data-i18n="badge.academic">ACADÊMICO</span>
             <span class="project-card__num">05</span>
           </div>
           <h3 class="project-card__title">PS1 — Fatec</h3>
-          <p class="project-card__subtitle">API REST Spring Boot</p>
+          <p class="project-card__subtitle" data-i18n="proj.ps1.sub">API REST Spring Boot</p>
         </div>
-        <p class="project-card__desc">
+        <p class="project-card__desc" data-i18n="proj.ps1.desc">
           API REST em Spring Boot com PostgreSQL, Flyway, JPA/Hibernate e Lombok.
           Desenvolvida em GitHub Codespaces para projeto semestral da Fatec.
         </p>
 
-        <!-- BLOCO DE CÓDIGO 3 — pytest fixture de banco -->
         <div class="code-block" aria-label="Exemplo de código — testes com pytest">
           <div class="code-block__header">
             <div class="code-block__dots">
@@ -581,13 +612,13 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
       <article class="project-card" id="project-java-core">
         <div class="project-card__header">
           <div class="project-card__meta">
-            <span class="badge">ESTUDOS</span>
+            <span class="badge" data-i18n="badge.study">ESTUDOS</span>
             <span class="project-card__num">06</span>
           </div>
           <h3 class="project-card__title">Java Core</h3>
-          <p class="project-card__subtitle">BankCLI + POO + Collections</p>
+          <p class="project-card__subtitle" data-i18n="proj.javacore.sub">BankCLI + POO + Collections</p>
         </div>
-        <p class="project-card__desc">
+        <p class="project-card__desc" data-i18n="proj.javacore.desc">
           Repositório de estudos em Java: POO, Collections Framework, persistência em CSV.
           Inclui o projeto BankCLI — sistema bancário via terminal.
         </p>
@@ -605,13 +636,13 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
       <article class="project-card" id="project-python-core">
         <div class="project-card__header">
           <div class="project-card__meta">
-            <span class="badge">ESTUDOS</span>
+            <span class="badge" data-i18n="badge.study">ESTUDOS</span>
             <span class="project-card__num">07</span>
           </div>
           <h3 class="project-card__title">Python Core</h3>
-          <p class="project-card__subtitle">python-fundamentals + Data</p>
+          <p class="project-card__subtitle" data-i18n="proj.pycore.sub">python-fundamentals + Data</p>
         </div>
-        <p class="project-card__desc">
+        <p class="project-card__desc" data-i18n="proj.pycore.desc">
           Estudos progressivos de Python: sintaxe, POO, decorators, generators.
           Projetos em Django e FastAPI. Bibliotecas de dados com pandas e NumPy.
         </p>
@@ -629,82 +660,108 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
     </div>
   </section>
 
-  <!-- CERTIFICAÇÕES — 005 -->
-  <section class="section section--certs" id="certificacoes">
-    <div class="section__header">
-      <span class="section__num">005</span>
-      <span class="section__label">CERTIFICAÇÕES</span>
-    </div>
+  <!-- CERTIFICAÇÕES — 005 (fundo: painel_images.png) -->
+  <section class="section section--certs section--painting" id="certificacoes"
+    style="--section-painting: url('images/painel_images.png');">
+    <div class="section__painting-overlay" aria-hidden="true"></div>
+    <div class="section__inner">
+      <div class="section__header">
+        <span class="section__num">005</span>
+        <span class="section__label" data-i18n="section.005.label">CERTIFICAÇÕES</span>
+      </div>
 
-    <div class="certs-grid">
-      <article class="cert-card cert-card--obtained" id="cert-toeic">
-        <div class="cert-card__status">
-          <span class="status-dot status-dot--green"></span>
-          OBTIDA
-        </div>
-        <div class="cert-card__body">
-          <h3 class="cert-card__title">TOEIC</h3>
-          <p class="cert-card__level">B1 — Inglês</p>
-          <p class="cert-card__org">ETS Global</p>
-        </div>
-      </article>
+      <div class="certs-grid">
 
-      <article class="cert-card" id="cert-aws">
-        <div class="cert-card__status">
-          <span class="status-dot status-dot--amber"></span>
-          EM CONSTRUÇÃO
-        </div>
-        <div class="cert-card__body">
-          <h3 class="cert-card__title">AWS SAA</h3>
-          <p class="cert-card__level">Solutions Architect Associate</p>
-          <p class="cert-card__org">Amazon Web Services</p>
-        </div>
-      </article>
+        <!-- TOEIC -->
+        <article class="cert-card cert-card--obtained" id="cert-toeic"
+          aria-describedby="cert-toeic-tip" tabindex="0">
+          <div class="cert-card__status">
+            <span class="status-dot status-dot--green"></span>
+            <span data-i18n="cert.obtained">OBTIDA</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">TOEIC</h3>
+            <p class="cert-card__level">B1 — Inglês</p>
+            <p class="cert-card__org">ETS Global</p>
+          </div>
+          <div class="cert-tooltip" role="tooltip" id="cert-toeic-tip">
+            <span data-i18n="cert.toeic.tip">Certificação de proficiência em inglês, nível intermediário, usada para ler documentação técnica e me comunicar em ambientes internacionais.</span>
+          </div>
+        </article>
 
-      <article class="cert-card" id="cert-gha">
-        <div class="cert-card__status">
-          <span class="status-dot status-dot--amber"></span>
-          EM CONSTRUÇÃO
-        </div>
-        <div class="cert-card__body">
-          <h3 class="cert-card__title">GitHub Actions</h3>
-          <p class="cert-card__level">Certification</p>
-          <p class="cert-card__org">GitHub</p>
-        </div>
-      </article>
+        <!-- AWS SAA -->
+        <article class="cert-card" id="cert-aws"
+          aria-describedby="cert-aws-tip" tabindex="0">
+          <div class="cert-card__status">
+            <span class="status-dot status-dot--amber"></span>
+            <span data-i18n="cert.wip">EM CONSTRUÇÃO</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">AWS SAA</h3>
+            <p class="cert-card__level">Solutions Architect Associate</p>
+            <p class="cert-card__org">Amazon Web Services</p>
+          </div>
+          <div class="cert-tooltip" role="tooltip" id="cert-aws-tip">
+            <span data-i18n="cert.aws.tip">Projeto e implantação de arquiteturas seguras, resilientes e escaláveis na AWS — aplicado diretamente no meu objetivo de atuar com infraestrutura em nuvem.</span>
+          </div>
+        </article>
 
-      <article class="cert-card" id="cert-kcna">
-        <div class="cert-card__status">
-          <span class="status-dot status-dot--amber"></span>
-          EM CONSTRUÇÃO
-        </div>
-        <div class="cert-card__body">
-          <h3 class="cert-card__title">KCNA</h3>
-          <p class="cert-card__level">Kubernetes & Cloud Native Associate</p>
-          <p class="cert-card__org">CNCF / Linux Foundation</p>
-        </div>
-      </article>
+        <!-- GitHub Actions -->
+        <article class="cert-card" id="cert-gha"
+          aria-describedby="cert-gha-tip" tabindex="0">
+          <div class="cert-card__status">
+            <span class="status-dot status-dot--amber"></span>
+            <span data-i18n="cert.wip">EM CONSTRUÇÃO</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">GitHub Actions</h3>
+            <p class="cert-card__level">Certification</p>
+            <p class="cert-card__org">GitHub</p>
+          </div>
+          <div class="cert-tooltip" role="tooltip" id="cert-gha-tip">
+            <span data-i18n="cert.gha.tip">Automação de fluxos de CI/CD e de tarefas de desenvolvimento com workflows, jobs e runners — uso isso hoje nos meus próprios projetos para rodar testes automaticamente a cada push.</span>
+          </div>
+        </article>
+
+        <!-- KCNA -->
+        <article class="cert-card" id="cert-kcna"
+          aria-describedby="cert-kcna-tip" tabindex="0">
+          <div class="cert-card__status">
+            <span class="status-dot status-dot--amber"></span>
+            <span data-i18n="cert.wip">EM CONSTRUÇÃO</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">KCNA</h3>
+            <p class="cert-card__level">Kubernetes & Cloud Native Associate</p>
+            <p class="cert-card__org">CNCF / Linux Foundation</p>
+          </div>
+          <div class="cert-tooltip" role="tooltip" id="cert-kcna-tip">
+            <span data-i18n="cert.kcna.tip">Fundamentos de Kubernetes e do ecossistema cloud native, como contêineres, orquestração e observabilidade — parte do caminho para atuar com infraestrutura moderna.</span>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 
-  <!-- OBJETIVO — CTA -->
+  <!-- OBJETIVO — CTA (fundo: vulcan.png) -->
   <section class="section section--cta" id="objetivo">
     <div class="cta-inner">
       <div class="cta-bg">
-        <img src="hero_landscape.png" alt="" aria-hidden="true" class="cta-bg__img">
+        <img src="images/vulcan.png" alt="" aria-hidden="true" class="cta-bg__img">
         <div class="cta-bg__overlay"></div>
       </div>
       <div class="cta-content">
-        <span class="cta__eyebrow">• OBJETIVO DE CARREIRA</span>
-        <h2 class="cta__heading">
+        <span class="cta__eyebrow" data-i18n="cta.eyebrow">• OBJETIVO DE CARREIRA</span>
+        <h2 class="cta__heading" data-i18n-nl="cta.heading">
           Back-end.<br>DevOps.<br>DevSecOps.
         </h2>
-        <p class="cta__desc">
+        <p class="cta__desc" data-i18n="cta.desc">
           Buscando oportunidades onde possa construir sistemas robustos,
           pipelines de CI/CD sólidos e infraestrutura segura em nuvem.
         </p>
         <a href="#contato" class="btn btn--lg btn--white" id="cta-contact-btn">
-          ENTRAR EM CONTATO →
+          <span data-i18n="cta.btn">ENTRAR EM CONTATO →</span>
         </a>
       </div>
     </div>
@@ -714,34 +771,32 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
   <section class="section section--contact" id="contato">
     <div class="section__header">
       <span class="section__num">006</span>
-      <span class="section__label">CONTATO</span>
+      <span class="section__label" data-i18n="section.006.label">CONTATO</span>
     </div>
 
     <div class="contact-grid">
       <div class="contact-grid__left">
-        <h2 class="section__heading">
+        <h2 class="section__heading" data-i18n-nl="contact.heading">
           Vamos<br>conversar.
         </h2>
-        <p class="contact-desc">
+        <p class="contact-desc" data-i18n="contact.desc">
           Aberto a estágios, posições júnior e projetos freelance em
           back-end, DevOps e automação.
         </p>
 
-        <!-- FOTO CONTATO -->
         <div class="contact-photo">
           <img
             src="assets/foto-contato-placeholder.jpg"
-            alt="Foto de Isaque — substituir pelo arquivo real"
+            alt="Foto de Isaque Lucio — substituir pelo arquivo real"
             class="contact-photo__img"
-            width="400"
-            height="400"
+            width="400" height="400"
             loading="lazy"
           >
         </div>
       </div>
 
       <div class="contact-grid__links">
-        <a href="https://github.com/IsaqueFranklin" class="contact-link" id="contact-github" target="_blank" rel="noopener">
+        <a href="https://github.com/IsaqueLucio" class="contact-link" id="contact-github" target="_blank" rel="noopener">
           <span class="contact-link__icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
@@ -749,12 +804,12 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
           </span>
           <span class="contact-link__text">
             <span class="contact-link__label">GitHub</span>
-            <span class="contact-link__value">github.com/IsaqueFranklin</span>
+            <span class="contact-link__value">github.com/IsaqueLucio</span>
           </span>
           <span class="contact-link__arrow">→</span>
         </a>
 
-        <a href="https://www.linkedin.com/in/isaque-franklin" class="contact-link" id="contact-linkedin" target="_blank" rel="noopener">
+        <a href="https://www.linkedin.com/in/isaque-lucio-946442238" class="contact-link" id="contact-linkedin" target="_blank" rel="noopener">
           <span class="contact-link__icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -762,12 +817,12 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
           </span>
           <span class="contact-link__text">
             <span class="contact-link__label">LinkedIn</span>
-            <span class="contact-link__value">linkedin.com/in/isaque-franklin</span>
+            <span class="contact-link__value">linkedin.com/in/isaque-lucio-946442238</span>
           </span>
           <span class="contact-link__arrow">→</span>
         </a>
 
-        <a href="mailto:isaque@dev.com" class="contact-link" id="contact-email">
+        <a href="mailto:isaque.o.lucio@gmail.com" class="contact-link" id="contact-email">
           <span class="contact-link__icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -776,14 +831,14 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
           </span>
           <span class="contact-link__text">
             <span class="contact-link__label">E-mail</span>
-            <span class="contact-link__value">isaque@dev.com</span>
+            <span class="contact-link__value">isaque.o.lucio@gmail.com</span>
           </span>
           <span class="contact-link__arrow">→</span>
         </a>
 
         <div class="contact-location">
           <span class="contact-location__dot"></span>
-          Franca, SP — Brasil
+          <span data-i18n="contact.location">Franca, SP — Brasil</span>
         </div>
       </div>
     </div>
@@ -793,24 +848,25 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
   <footer class="footer" role="contentinfo">
     <div class="footer__inner">
       <div class="footer__left">
-        <span class="footer__name">ISAQUE</span>
-        <span class="footer__tagline">Back-end & DevOps Developer</span>
+        <span class="footer__name">ISAQUE LUCIO</span>
+        <span class="footer__tagline" data-i18n="footer.tagline">Back-end & DevOps Developer</span>
       </div>
       <div class="footer__center">
         <nav aria-label="Navegação do rodapé">
-          <a href="#sobre">Sobre</a>
-          <a href="#stack">Stack</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#certificacoes">Certs</a>
-          <a href="#contato">Contato</a>
+          <a href="#sobre" data-i18n="footer.nav.about">Sobre</a>
+          <a href="#stack" data-i18n="footer.nav.stack">Stack</a>
+          <a href="#projetos" data-i18n="footer.nav.projects">Projetos</a>
+          <a href="#certificacoes" data-i18n="footer.nav.certs">Certs</a>
+          <a href="#contato" data-i18n="footer.nav.contact">Contato</a>
         </nav>
       </div>
       <div class="footer__right">
-        <span>© 2026 Isaque. Todos os direitos reservados.</span>
+        <span data-i18n="footer.copy">© 2026 Isaque Lucio. Todos os direitos reservados.</span>
       </div>
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

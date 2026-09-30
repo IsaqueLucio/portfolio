@@ -1241,3 +1241,267 @@ body::before {
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
+
+/* ============================================================
+   LIGHT THEME — variáveis sobrescritas via data-theme="light"
+   ============================================================ */
+[data-theme="light"] {
+  --clr-bg:           #f5f3ee;
+  --clr-surface:      #ede9e2;
+  --clr-surface-2:    #e3ddd5;
+  --clr-border:       rgba(0,0,0,0.12);
+  --clr-border-hover: rgba(0,0,0,0.28);
+  --clr-text:         #1a1814;
+  --clr-text-muted:   #6b6560;
+  --clr-text-dim:     #a09890;
+  --painting-overlay-color: 245, 243, 238;  /* creme */
+  --painting-overlay-opacity: 0.88;
+}
+
+[data-theme="dark"] {
+  --painting-overlay-color: 10, 10, 10;
+  --painting-overlay-opacity: 0.82;
+}
+
+/* body::before (hatch) adapta ao tema */
+[data-theme="light"] body::before {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--clr-text) 0,
+    var(--clr-text) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 8px 8px;
+}
+
+[data-theme="light"] .nav.scrolled {
+  background: rgba(245,243,238,0.95);
+}
+
+[data-theme="light"] .code-block {
+  background: #f0ede6;
+  border-color: rgba(0,0,0,0.1);
+}
+[data-theme="light"] .code-block__header {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.06);
+}
+[data-theme="light"] .code-block__body code { color: #2a2520; }
+[data-theme="light"] .code-block .ck  { color: #1a5ca8; }
+[data-theme="light"] .code-block .cs  { color: #5a7a00; }
+[data-theme="light"] .code-block .cc  { color: #999088; }
+
+[data-theme="light"] .cta__desc { color: rgba(26,24,20,0.65); }
+
+/* Selection */
+[data-theme="light"] ::selection { color: #fff; }
+
+/* Scrollbar */
+[data-theme="light"] ::-webkit-scrollbar-track { background: var(--clr-bg); }
+
+/* ============================================================
+   SECTION COM PINTURA DE FUNDO
+   ============================================================ */
+.section--painting {
+  position: relative;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.section--painting .section__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--section-padding) clamp(1.25rem, 4vw, 3rem);
+}
+
+.section__painting-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: var(--section-painting);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+  /* Overlay de cor de tema por cima da pintura */
+  /* Usa pseudo-element para o overlay de cor */
+}
+
+/* Overlay de cor sólida — garante contraste WCAG AA */
+.section--painting::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--section-painting);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.09;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Stack section tem fundo próprio — mantém mas adiciona pintura */
+.section--stack.section--painting {
+  background: var(--clr-surface);
+}
+.section--stack.section--painting > * { position: relative; z-index: 1; }
+
+/* about-photo com pintura de fundo */
+.about-photo__painting {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+.about-photo__img { position: relative; z-index: 1; }
+.about-photo__caption { z-index: 2; }
+
+/* ============================================================
+   CERT TOOLTIP
+   ============================================================ */
+.cert-card {
+  position: relative;  /* garante posicionamento do tooltip */
+}
+
+.cert-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: clamp(240px, 90vw, 320px);
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border-hover);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--clr-text-muted);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  z-index: 200;
+  /* Oculto por padrão */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+/* Seta */
+.cert-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--clr-border-hover);
+}
+
+/* Visível no hover e no foco via teclado */
+.cert-card:hover .cert-tooltip,
+.cert-card:focus .cert-tooltip,
+.cert-card:focus-within .cert-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* Mobile: tooltip abaixo se não couber acima */
+@media (max-width: 500px) {
+  .cert-tooltip {
+    bottom: auto;
+    top: calc(100% + 8px);
+    left: 0;
+    transform: none;
+    width: calc(100vw - 2rem);
+    max-width: 320px;
+  }
+  .cert-tooltip::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: var(--clr-border-hover);
+  }
+  .cert-card:hover .cert-tooltip,
+  .cert-card:focus .cert-tooltip,
+  .cert-card:focus-within .cert-tooltip {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   LANG SWITCHER
+   ============================================================ */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lang-btn {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--clr-text-dim);
+  padding: 0.25rem 0.4rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  cursor: pointer;
+}
+
+.lang-btn:hover { color: var(--clr-text-muted); }
+
+.lang-btn--active {
+  color: var(--clr-accent);
+  background: rgba(232,162,58,0.1);
+}
+
+.lang-sep {
+  color: var(--clr-text-dim);
+  font-size: 0.6rem;
+  user-select: none;
+}
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--clr-border);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--clr-border-hover);
+  background: var(--clr-surface-2);
+}
+
+.theme-toggle__icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: none;
+}
+
+/* Dark theme: mostra lua */
+[data-theme="dark"] .theme-toggle__icon--dark  { display: block; }
+[data-theme="dark"] .theme-toggle__icon--light { display: none;  }
+
+/* Light theme: mostra sol */
+[data-theme="light"] .theme-toggle__icon--dark  { display: none;  }
+[data-theme="light"] .theme-toggle__icon--light { display: block; }
+

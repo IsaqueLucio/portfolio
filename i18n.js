@@ -14,6 +14,7 @@ window.CONTENT = {
 
     /* HERO */
     "hero.location":     "Franca, SP — Brasil",
+    "hero.subtitle":     "Developer Portfolio",
 
     /* TICKER (mantém como está, são tecnologias) */
 
@@ -118,6 +119,7 @@ window.CONTENT = {
     "nav.contact":       "CONTACT",
 
     "hero.location":     "Franca, SP — Brazil",
+    "hero.subtitle":     "Developer Portfolio",
 
     "section.001.label": "PROFILE",
     "about.heading":     "Building systems\nthat scale.",
@@ -211,6 +213,7 @@ window.CONTENT = {
     "nav.contact":       "CONTACTO",
 
     "hero.location":     "Franca, SP — Brasil",
+    "hero.subtitle":     "Developer Portfolio",
 
     "section.001.label": "PERFIL",
     "about.heading":     "Construyendo sistemas\nque escalan.",

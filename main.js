@@ -201,8 +201,8 @@
 // THEME TOGGLE (claro / escuro / sistema)
 // ──────────────────────────────────────────
 (function initTheme() {
-  const toggle = document.getElementById('theme-toggle');
-  const root   = document.documentElement;
+  const btns = document.querySelectorAll('.theme-btn');
+  const root = document.documentElement;
 
   const sysMq = window.matchMedia('(prefers-color-scheme: light)');
 
@@ -211,13 +211,13 @@
       ? (sysMq.matches ? 'light' : 'dark')
       : theme;
     root.setAttribute('data-theme', effective);
-    // Update aria-label on toggle button
-    if (toggle) {
-      const key = effective === 'light' ? 'theme.toggle.light' : 'theme.toggle.dark';
-      const lang = localStorage.getItem('lang') || 'pt';
-      const strings = window.CONTENT && window.CONTENT[lang];
-      toggle.setAttribute('aria-label', strings ? strings[key] : 'Toggle theme');
-    }
+    
+    // Update active button state
+    btns.forEach(btn => {
+      const isActive = btn.getAttribute('data-theme-val') === theme;
+      btn.classList.toggle('theme-btn--active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
   }
 
   // React to OS-level changes when in 'system' mode
@@ -226,18 +226,69 @@
     if (saved === 'system') applyTheme('system');
   });
 
-  if (toggle) {
-    toggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const next = btn.getAttribute('data-theme-val');
       localStorage.setItem('theme', next);
       applyTheme(next);
     });
-  }
+  });
 
-  // Apply on load (the <head> inline script already set the attr, but we need aria-label)
+  // Apply on load (the <head> inline script already set the attr, but we need aria-pressed)
   const saved = localStorage.getItem('theme') || 'dark';
   applyTheme(saved);
+})();
+
+// ──────────────────────────────────────────
+// SCROLLSPY & HAMBURGER MENU
+// ──────────────────────────────────────────
+(function initMenu() {
+  const hamburger = document.getElementById('nav-hamburger');
+  const menu = document.getElementById('nav-menu');
+  const links = document.querySelectorAll('.nav__link');
+  const sections = Array.from(links).map(link => document.querySelector(link.getAttribute('href')));
+
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('nav__menu--open', !isExpanded);
+    });
+
+    // Close menu when clicking a link
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('nav__menu--open');
+      });
+    });
+  }
+
+  // Scrollspy via IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    // Only care about entries that are intersecting
+    const visibleSections = entries.filter(entry => entry.isIntersecting).map(entry => entry.target.id);
+    
+    if (visibleSections.length > 0) {
+      // Pick the first visible section
+      const activeId = visibleSections[0];
+      links.forEach(link => {
+        const href = link.getAttribute('href').substring(1);
+        if (href === activeId) {
+          link.classList.add('nav__link--active');
+        } else {
+          link.classList.remove('nav__link--active');
+        }
+      });
+    }
+  }, {
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(sec => {
+    if (sec) observer.observe(sec);
+  });
 })();
 
 // ──────────────────────────────────────────

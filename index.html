@@ -35,11 +35,19 @@
   <!-- NAV -->
   <nav class="nav" id="nav" role="navigation" aria-label="Navegação principal">
     <div class="nav__inner">
-      <div class="nav__tags">
-        <span class="tag" data-i18n="nav.tag.backend">BACK-END</span>
-        <span class="tag" data-i18n="nav.tag.devops">DEVOPS</span>
-        <span class="tag" data-i18n="nav.tag.year">2026</span>
-      </div>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" class="hamburger-lines"/>
+        </svg>
+      </button>
+
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#sobre" class="nav__link" data-i18n="footer.nav.about">Sobre</a></li>
+        <li><a href="#experiencia" class="nav__link" data-i18n="section.002.label">Experiência</a></li>
+        <li><a href="#projetos" class="nav__link" data-i18n="footer.nav.projects">Projetos</a></li>
+        <li><a href="#certificacoes" class="nav__link" data-i18n="footer.nav.certs">Certs</a></li>
+      </ul>
+
       <div class="nav__right">
         <span class="nav__name">ISAQUE LUCIO</span>
 
@@ -52,11 +60,21 @@
           <button class="lang-btn" data-lang="es" id="lang-es" aria-pressed="false">ES</button>
         </div>
 
-        <!-- Toggle de tema -->
-        <button class="theme-toggle" id="theme-toggle" aria-label="Mudar para modo claro" title="Mudar tema">
-          <img src="images/moon.png" alt="" class="theme-toggle__icon theme-toggle__icon--dark" width="18" height="18">
-          <img src="images/sun.png"  alt="" class="theme-toggle__icon theme-toggle__icon--light" width="18" height="18">
-        </button>
+        <!-- Toggle de tema (3 opções) -->
+        <div class="theme-switcher" role="group" aria-label="Seletor de tema">
+          <button class="theme-btn" data-theme-val="light" aria-label="Tema Claro" aria-pressed="false" title="Modo Claro">
+            <img src="images/sun_white.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--white" width="16" height="16">
+            <img src="images/sun.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--dark" width="16" height="16">
+          </button>
+          <button class="theme-btn" data-theme-val="system" aria-label="Tema Sistema" aria-pressed="false" title="Seguir Sistema">
+            <img src="images/settings_white.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--white" width="16" height="16">
+            <img src="images/settings_dark.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--dark" width="16" height="16">
+          </button>
+          <button class="theme-btn" data-theme-val="dark" aria-label="Tema Escuro" aria-pressed="false" title="Modo Escuro">
+            <img src="images/moon.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--white" width="16" height="16">
+            <img src="images/moon_dark.png?v=2" alt="" class="theme-btn__icon theme-btn__icon--dark" width="16" height="16">
+          </button>
+        </div>
 
         <a href="#contato" class="btn btn--primary" id="nav-contact-btn">
           <span class="btn__dot"></span>
@@ -690,7 +708,7 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
         </article>
 
         <!-- AWS SAA -->
-        <article class="cert-card" id="cert-aws"
+        <article class="cert-card cert-card--wip" id="cert-aws"
           aria-describedby="cert-aws-tip" tabindex="0">
           <div class="cert-card__status">
             <span class="status-dot status-dot--amber"></span>
@@ -707,7 +725,7 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
         </article>
 
         <!-- GitHub Actions -->
-        <article class="cert-card" id="cert-gha"
+        <article class="cert-card cert-card--wip" id="cert-gha"
           aria-describedby="cert-gha-tip" tabindex="0">
           <div class="cert-card__status">
             <span class="status-dot status-dot--amber"></span>
@@ -724,7 +742,7 @@ router = APIRouter(prefix=<span class="cs">"/transactions"</span>)
         </article>
 
         <!-- KCNA -->
-        <article class="cert-card" id="cert-kcna"
+        <article class="cert-card cert-card--wip" id="cert-kcna"
           aria-describedby="cert-kcna-tip" tabindex="0">
           <div class="cert-card__status">
             <span class="status-dot status-dot--amber"></span>
